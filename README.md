@@ -2,17 +2,19 @@
 
 Atomic authority package for `data/json`.
 
-- imports: `#{:json-extract-field :json-encode}`
-- effects: `#{:codec}`
-- default policy: `:autonomous`
+- provider status: **reference-implemented**
 - semantic definition CID: `bafyreia2fucycy5w6nmxp3j473pz5vzamg2yisjiog6jw7bzoeqzqcprfq`
-- hash contract CID: `bafkreiflhj3fslsbh7okdas2fzlhmogai64x6p3lkla6gtr7berbp7ftvi`
-- provider status: `contract-only`
+- artifact: `artifacts/provider.core.wasm`
+- JVM reference: `kotoba.capability.data.json.provider`
+- host ABI (module `kotoba`):
+  - `json_encode` `(i32 i32 i32 i32) → i32`
+  - `json_extract_field` `(i32 i32 i32 i32 i32 i32) → i32`
 
-The repository name is a discovery alias. The semantic definition CID
-is the immutable import identity. Importing it does not grant runtime
-authority: Tamaki must request it explicitly and Kototama must admit
-the sealed envelope.
+`json_encode` consumes flat `key\tvalue` / LF pairs → JSON object of strings.
+`json_extract_field` does a bounded `"field":"value"` scan (not a full parser).
+
+Definition CID is unchanged. `:signature :reference-unsigned` is reference
+packaging.
 
 ```sh
 clojure -M:test
