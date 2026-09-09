@@ -11,7 +11,7 @@
   to portable .cljc — runs JVM-free via nbb/CLJS and amu --jvm-free.
   Public exports preserved: parse-pairs, encode-object, encode-pairs-wire,
   extract-field, host-exports."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn parse-pairs
   [wire]
